@@ -1,0 +1,32 @@
+{
+    "name": "theophilus-clinic-management-system",
+    "version": "1.0.0",
+    "description": "Theophilus Clinic Management System Desktop Application",
+    "main": "electron/main.js",
+    "scripts": {
+        "postinstall": "electron-builder install-app-deps",
+        "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+        "build:backend": "cd backend && npm run build",
+        "build:frontend": "cd frontend && npm run build",
+        "build": "npm run build:backend && npm run build:frontend",
+        "start": "electron .",
+        "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"electron .\"",
+        "dev:backend": "cd backend && npm run dev",
+        "dev:frontend": "cd frontend && npm run dev",
+        "dist": "npm run build && electron-builder",
+        "prisma:generate": "cd backend && npx prisma generate"
+    },
+    "author": "Emmanuel Nyangazie",
+    "license": "MIT",
+    "dependencies": {
+        "dotenv": "^16.3.1",
+        "electron-is-dev": "^2.0.0"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2",
+        "electron": "^28.1.0",
+        "electron-builder": "^24.9.1",
+        "wait-on": "^7.2.0",
+        "typescript": "^5.3.3"
+    }
+}

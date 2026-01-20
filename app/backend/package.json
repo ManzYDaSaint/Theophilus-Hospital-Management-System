@@ -1,0 +1,50 @@
+{
+  "name": "hospital-backend",
+  "version": "1.0.0",
+  "description": "Hospital Operations Management System - Backend API",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "prisma generate --schema=./src/prisma/schema.prisma && tsc",
+    "start": "node dist/server.js",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:generate": "prisma generate --schema=./src/prisma/schema.prisma",
+    "prisma:seed": "ts-node --transpile-only src/prisma/seed.ts",
+    "prisma:studio": "prisma studio",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "keywords": [
+    "hospital",
+    "management",
+    "offline",
+    "healthcare"
+  ],
+  "author": "Emmanuel Nyangazie",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^5.8.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "winston": "^3.11.0",
+    "zod": "^3.22.4",
+    "prisma": "^5.8.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.10.6",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,46 @@
+{
+    "appId": "com.hms.desktop",
+    "productName": "Theophilus Management System",
+    "directories": {
+        "output": "dist",
+        "buildResources": "assets"
+    },
+    "asar": false,
+    "files": [
+        "package.json",
+        "electron/**/*",
+        "frontend/dist/**/*",
+        "!backend/**/*",
+        "node_modules/dotenv/**/*",
+        "node_modules/electron-is-dev/**/*"
+    ],
+    "extraResources": [
+        {
+            "from": "backend",
+            "to": "backend",
+            "filter": [
+                "dist/**/*",
+                "node_modules/**/*",
+                "package.json",
+                "src/prisma/**/*"
+            ]
+        },
+        {
+            "from": ".env",
+            "to": ".env"
+        }
+    ],
+    "win": {
+        "target": [
+            "nsis",
+            "portable"
+        ],
+        "icon": "electron/assets/icon.ico"
+    },
+    "nsis": {
+        "oneClick": false,
+        "allowToChangeInstallationDirectory": true,
+        "createDesktopShortcut": true,
+        "createStartMenuShortcut": true
+    }
+}
